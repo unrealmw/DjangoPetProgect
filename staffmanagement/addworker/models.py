@@ -6,3 +6,4 @@ class Worker(models.Model):
     last_name = models.CharField("Фамилия", max_length=30)
     patronymic = models.CharField("Отчество", max_length=30)
     birth_date = models.DateField("Дата рождения",)
+    objects = models.Manager()
