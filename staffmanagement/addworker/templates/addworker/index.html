@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная: список сотрудников</title>
+</head>
+<body>
+    <h1>Список сотрудников</h1>
+    {% for worker in workers %}
+    <div>
+        <h2>{{ worker.pk }}</h2>
+        <p>{{ worker.name }}</p>
+        <p>{{ worker.last_name }}</p>
+        <p>{{ worker.patronymic }}</p>
+        <p>{{ worker.birth_date|date:"d.m.Y" }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
