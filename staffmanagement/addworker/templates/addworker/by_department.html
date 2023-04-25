@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Система учёта персонала :: Список всех сотрудников</title>
+    <title>Место работы: {{ current_department.name }}</title>
 </head>
 <body>
-    <h1>Список всех сотрудников</h1>
     <div>
-        <a href="{% url 'add' %}">Добавить работника</a>
         <a href="{% url 'index' %}">Все работники</a>
         {% for department in departments %}
         <a href="{% url 'by_department' department.pk %}">{{ department.name }}</a>
         {% endfor %}
     </div>
+    <h2>Место работы: {{ current_department.name }}</h2>
     {% for worker in workers %}
     <div>
         <p>{{ worker.pk }} {{ worker.name }}
