@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Место работы: {{ current_department.name }}</title>
-</head>
-<body>
-    <div>
-        <a href="{% url 'index' %}">Все работники</a>
-        {% for department in departments %}
-        <a href="{% url 'by_department' department.pk %}">{{ department.name }}</a>
-        {% endfor %}
-    </div>
-    <h2>Место работы: {{ current_department.name }}</h2>
-    {% for worker in workers %}
-    <div>
-        <p>{{ worker.pk }} {{ worker.name }}
-            {{ worker.last_name }} {{ worker.patronymic }}
-            {{ worker.birth_date|date:"d.m.Y" }}</p>
-    </div>
-    {% endfor %}
-</body>
-</html>
+{% extends "layout/basic.html" %}
+
+{% block title %} {{ current_department.name }} {% endblock %}
+
+{% block content %}
+<h2>Место работы: {{ current_department.name }}</h2>
+{% for worker in workers %}
+<div>
+    <p>{{ worker.pk }} {{ worker.name }}
+        {{ worker.last_name }} {{ worker.patronymic }}
+        {{ worker.birth_date|date:"d.m.Y" }}</p>
+</div>
+{% endfor %}
+{% endblock %}
