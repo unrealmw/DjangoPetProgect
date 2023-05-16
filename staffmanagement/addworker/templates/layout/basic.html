@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css"
+    href="{% static 'addworker/style.css'%}">
+    <meta charset="UTF-8">
+    <title>{% block title %}Главная{% endblock %} :: Система учёта персонала</title>
+</head>
+<body>
+      <nav>
+          <a href="{% url 'add' %}">Добавить работника</a>
+          <a href="{% url 'index' %}">Все работники</a>
+          {% for department in departments %}
+          <a href="{% url 'by_department' department.pk %}">{{ department.name }}</a>
+          {% endfor %}
+      </nav>
+      <section>
+          {% block content %}
+          {% endblock %}
+      </section>
+</body>
+</html>

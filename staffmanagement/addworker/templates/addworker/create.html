@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Добавление работника :: Система учёта персонала</title>
-</head>
-<body>
-    <div>
-        <h1>Добавление работника</h1>
-        <a href="{% url 'index' %}">Главная</a>
-    </div>
+{% extends "layout/basic.html" %}
+
+{% block title %}Добавление работника{% endblock %}
+
+{% block content %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Добавить">
     </form>
-</body>
-</html>
+{% endblock %}
